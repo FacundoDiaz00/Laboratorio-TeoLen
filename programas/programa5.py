@@ -4,10 +4,7 @@ import sys
 
 def prog(texto):
     tag = re.findall(r'"tag": "(.*)",', texto)
-    it=0
     aux=""
-    num_pat=0
-    num_responses=0
     pat = re.findall(r'"patterns": (\[\s*.*?\s*\])', texto, flags=re.DOTALL) # Otra solucion(sin utiliar DOTALL):("patterns": \[\s(\s*".*",*\s)*\s*\]) 
     res = re.findall(r'"responses": (\[\s*.*?\s*\])', texto, flags=re.DOTALL) # ("responses": \[\s(\s*".*",*\s)*\s*\])
     

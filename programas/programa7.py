@@ -4,11 +4,15 @@ import sys
 
 def prog(texto):
 
-    result = re.sub(r'("patterns": \[\s+".*"),*(\s*".*",*)*', r'\1', texto, flags=0)
-    result = re.sub(r'("responses": \[\s+".*"),*(\s*".*",*)*', r'\1', result, flags=0)
-    result = re.sub(r'("tag": )"(.*)",', r'\1''"T",', result, flags=0)
-    result = re.sub(r'("patterns": \[\s+).*",*(\s*".*",*)*', r'\1''"P"', result, flags=0)
-    result = re.sub(r'("responses": \[\s+).*",*(\s*".*",*)*', r'\1''"R"', result, flags=0)
+    result = re.sub(r'("tag": )"(.*)",', r'\1''"T",', texto, flags=0)
+    result = re.sub(r'("patterns": \[\s+)".*",*(\s*".*",*)*', r'\1"P"', result, flags=0)
+    result = re.sub(r'("responses": \[\s+)".*",*(\s*".*",*)*', r'\1"R"', result, flags=0)
+
+    # O alternativamente:
+    #result = re.sub(r'("patterns": \[\s+".*"),*(\s*".*",*)*', r'\1', texto, flags=0)
+    #result = re.sub(r'("responses": \[\s+".*"),*(\s*".*",*)*', r'\1', result, flags=0)
+    #result = re.sub(r'("patterns": \[\s+).*",*(\s*".*",*)*', r'\1''"P"', result, flags=0)
+    #result = re.sub(r'("responses": \[\s+).*",*(\s*".*",*)*', r'\1''"R"', result, flags=0)
     return result
 
 
