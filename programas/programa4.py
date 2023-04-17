@@ -7,13 +7,13 @@ def prog(texto):
     it=0
     result=""
 
-    #("tag": )"(.*)",\s*("patterns": \[\s+)".*",*(\s*".*",*)*\s*],\s*("responses": \[\s+)".*",*(\s*".*",*)* ->(V1)
-    #("tag": )"(.*)",\s*("patterns": \[((\s*".*",*)*)\s*],\s*)("responses": \[((\s*".*",*)*))\s*] ->(V2)
-    #"tag"(.|\s)*?"context_set": "" ->(V3)
+    #("tag": )"(.*)",\s*("patterns": \[\s+)".*",*(\s*".*",*)*\s*],\s*("responses": \[\s+)".*",*(\s*".*",*)*
+    #("tag": )"(.*)",\s*("patterns": \[((\s*".*",*)*)\s*],\s*)("responses": \[((\s*".*",*)*))\s*]
+    #"tag"(.|\s)*?"context_set": ""
 
     #aux = re.finditer(r'("tag": )"(.*)",\s*("patterns": \[\s+)".*",*(\s*".*",*)*\s*],\s*("responses": \[\s+)".*",*(\s*".*",*)*', texto, flags=0)
     #aux = re.finditer(r'"tag"(.|\s)*?"context_set": ""', texto, flags=0)
-    
+
     aux = re.finditer(r'("tag": )"(.*)",\s*("patterns": \[((\s*".*",*)*)\s*],\s*)("responses": \[((\s*".*",*)*))\s*]', texto, flags=0)
     for i in aux:
         pat = re.search(r'"patterns": \[((\s*".*",*)*)', i.group(0), flags=0)

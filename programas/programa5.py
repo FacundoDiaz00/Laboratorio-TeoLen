@@ -18,20 +18,20 @@ def prog(texto):
 
     return tagResult + " " + patResult + " " + respResult
 
-    """ for i in pat:
+    """ num_pat=0
+    num_responses=0
+    it=0
+
+    for i in pat:
+        patterns=re.split('",\n',i)
+        num_pat=num_pat+len(patterns)
+        responses=re.split('",\n',res[it])
+        num_responses=num_responses+len(responses)
+        aux=aux+tag[it]+" "+str(num_pat)+" "+str(num_responses)
         if it<len(pat)-1:
-            patterns=re.split('",\n',i)
-            num_pat=num_pat+len(patterns)
-            responses=re.split('",\n',res[it])
-            num_responses=num_responses+len(responses)
-            aux=aux+tag[it]+" "+str(num_pat)+" "+str(num_responses)+"\n"
-            it=it+1
-        else:
-            patterns=re.split('",\n',i)
-            num_pat=num_pat+len(patterns)
-            responses=re.split('",\n',res[it])
-            num_responses=num_responses+len(responses)
-            it=it+1
+            aux = aux + "\n"
+        it=it+1
+
 
     return str(it)+" "+str(num_pat)+" "+str(num_responses) """
     

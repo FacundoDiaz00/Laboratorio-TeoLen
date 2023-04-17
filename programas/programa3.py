@@ -5,6 +5,23 @@ import sys
 def prog(texto):
     tag = re.findall(r'"tag": "(.*)",', texto)
     it=0
+    result=""
+    
+    aux = re.finditer(r'("tag": )"(.*)",\s*("patterns": \[((\s*".*",*)*)\s*],\s*)', texto, flags=0)
+    for i in aux:
+        pat = re.search(r'"patterns": \[((\s*".*",*)*)', i.group(0), flags=0)
+        pat = re.findall(r'\s*".*",*', pat.group(1), flags=0)
+
+
+        result = result + tag[it] + " " + str(len(pat))
+        
+        if it<len(tag)-1:
+            result = result + "\n"
+        it+=1
+
+    return result
+    '''tag = re.findall(r'"tag": "(.*)",', texto)
+    it=0
     aux=""
     pat = re.findall(r'"patterns": (\[\s*.*?\s*\])', texto, flags=re.DOTALL)
     for i in pat:
@@ -18,7 +35,7 @@ def prog(texto):
             num_pat=len(patterns)
             aux=aux+tag[it]+" "+str(num_pat)
             it=it+1
-    return aux
+    return aux'''
     
 
 
