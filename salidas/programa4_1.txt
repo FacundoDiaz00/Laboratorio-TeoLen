@@ -1,2 +1,2 @@
-greeting 0 0
-greeting 0 0
+greeting 10 3
+goodbye 12 4
