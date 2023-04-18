@@ -7,12 +7,10 @@ def prog(texto):
     it=0
     result=""
 
-    #("tag": )"(.*)",\s*("patterns": \[\s+)".*",*(\s*".*",*)*\s*],\s*("responses": \[\s+)".*",*(\s*".*",*)*
-    #("tag": )"(.*)",\s*("patterns": \[((\s*".*",*)*)\s*],\s*)("responses": \[((\s*".*",*)*))\s*]
-    #"tag"(.|\s)*?"context_set": ""
+    # Opciones alternativas para la expresion regular:
+    #("tag": )"(.*)",\s*("patterns": \[((\s*".*",*)*)\s*],\s*)("responses": \[((\s*".*",*)*))\s*] (esta es la que se usa)
+    #"tag"(.|\s)*?"context_set": "" (alternativa)
 
-    #aux = re.finditer(r'("tag": )"(.*)",\s*("patterns": \[\s+)".*",*(\s*".*",*)*\s*],\s*("responses": \[\s+)".*",*(\s*".*",*)*', texto, flags=0)
-    #aux = re.finditer(r'"tag"(.|\s)*?"context_set": ""', texto, flags=0)
 
     aux = re.finditer(r'("tag": )"(.*)",\s*("patterns": \[((\s*".*",*)*)\s*],\s*)("responses": \[((\s*".*",*)*))\s*]', texto, flags=0)
     for i in aux:
